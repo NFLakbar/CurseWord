@@ -1,0 +1,106 @@
+:root {
+    --duration: 2s;
+    --color-blood2: #8a0303;
+    --color-blood2-light: #cc1212;
+    --color-light-steel: #595D61;
+    --color-dark-steel: #292728;
+  }
+  
+  
+  /* Section */
+  section.survival {
+    background-color: #000;
+    position: relative;
+    padding: 2rem 4rem;
+    position: relative;
+  }
+  
+  section.survival > * {
+    color: #fff;
+  }
+  
+  section.survival.blood2 {
+    --duration: 1s;
+    padding: 0;
+  
+  }
+  
+  section.survival.blood2 > * {
+    position: relative;
+    z-index: 10;
+    color: #000;
+    padding: 2rem 7rem;
+    margin: 0;
+  }
+  
+  section.survival.blood2 > *:before {
+    --initial-height: 0%;
+    content: " ";
+    width: 1rem;
+    height: var(--initial-height);
+    position: absolute;
+    top: 0px;
+    left: 4rem;
+    background-color: var(--color-blood2);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    animation-name: blood2;
+    animation-duration: var(--duration);
+    animation-timing-function: linear; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  section.survival.blood2 > *:nth-child(2):before {
+    animation-delay: calc(var(--duration) * 5);
+    left: calc(100% - 4rem);
+  }
+  
+  section.survival.blood2 > *:nth-child(3):before {
+    animation-delay: calc(var(--duration) * 10);
+  }
+  
+  @keyframes blood2 {
+    0% {
+      height: var(--initial-height);
+    }
+    100% {
+      height: 100%;
+    }
+  }
+  
+  section.survival.blood2 > *:after {
+    content: " ";
+    width: 1rem;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+    background-color: var(--color-blood2);
+    z-index: -1;
+    animation-name: fillblood2;
+    animation-delay: var(--duration);
+    animation-duration: calc(var(--duration) * 4);
+    animation-timing-function: linear; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  section.survival.blood2 > *:nth-child(2):after {
+    animation-delay: calc(var(--duration) * 6);
+  }
+  
+  section.survival.blood2 > *:nth-child(3):after {
+    animation-delay: calc(var(--duration) * 11);
+  }
+  
+  @keyframes fillblood2 {
+    0% {
+      height: 0%;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+  
